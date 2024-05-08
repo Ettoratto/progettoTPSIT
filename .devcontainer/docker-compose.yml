@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  app-db:
+    container_name: app-db
+    image: mysql:8.1.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+    volumes:
+      - ../db-data:/var/lib/mysql
+  app-db-admin:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    depends_on:
+      - app-db
+    restart: always
+    ports:
+      - 8000:80
+    environment:
+      - PMA_ARBITRARY=1
+  app-java-angular:
+    container_name: app-java-angular
+    depends_on:
+      - app-db
+    build:
+      context: .
+      dockerfile: ./app-java-angular.Dockerfile
+    ports:
+      - 8080:8080
+      - 4200:4200
+    volumes:
+      - ../dev:/workspace
+    command: bash
+    stdin_open: true
+    tty: true
