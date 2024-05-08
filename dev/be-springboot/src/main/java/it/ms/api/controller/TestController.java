@@ -18,7 +18,7 @@ public class TestController {
 
 
 
-    @GetMapping("list")
+    @GetMapping("list") //select all
     public List<Tutorial> list() {
         return tutorialRepo.findAll();
     }
