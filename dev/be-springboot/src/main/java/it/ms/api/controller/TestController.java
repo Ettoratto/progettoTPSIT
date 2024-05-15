@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.ms.api.data.entity.Tutorial;
-import it.ms.api.data.repo.TutorialRepository;
+import it.ms.api.data.entity.Administator;
+import it.ms.api.data.repo.GymRepository;
 
 @RestController
-@RequestMapping("tutorials")
+@RequestMapping("users")
 public class TestController {
 
-    @Autowired TutorialRepository tutorialRepo;
+    @Autowired GymRepository gymRepo;
 
 
 
     @GetMapping("list") //select all
-    public List<Tutorial> list() {
-        return tutorialRepo.findAll();
+    public List<Administator> list() {
+        return gymRepo.findAll();
     }
 
 
