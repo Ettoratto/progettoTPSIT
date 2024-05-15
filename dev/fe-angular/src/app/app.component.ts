@@ -11,7 +11,7 @@ import { TutorialsService } from './services/tutorials.service';
   standalone: true,
   imports: [RouterOutlet, JsonPipe, HttpClientModule, SidebarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'fe-angular';

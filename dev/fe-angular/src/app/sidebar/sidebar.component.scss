@@ -1,0 +1,126 @@
+@import "../../assets/_variables.scss";
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $silver_C9C6BE;
+    height: 100%;
+    width: fit-content;
+    padding: 15px;
+}
+
+.user-pill{
+
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 361px;
+    height: 8vh;
+    min-height: 8vh;
+    box-shadow: $defaultBoxShadow;
+    border-radius: 105px;
+    background-color: $white_FFFCF2;
+
+    #username  {
+
+        letter-spacing: 4px;
+        font-size: 22px;
+    }
+    
+    #connection {
+    
+        letter-spacing: -1px;
+        font-size: 15px;
+        color: $darkGray_5C5A56;
+    }
+}
+
+.user-propic {
+
+    width: 71px;
+    height: 71px;
+    border-radius: 105px;
+    box-shadow: $defaultBoxShadow;
+    border: 1px solid $silver_C9C6BE;
+}
+
+.user-info span {
+
+    text-shadow: $defaultTextShadow;
+    line-height: 30px;
+    margin-left: 10px;
+
+}
+
+.placeholder {
+
+    width: 361px;
+    height: 65%;
+    border-radius: 25px;
+    background-color: $white_FFFCF2;
+    margin-top: 20px;
+    box-shadow: $defaultBoxShadow;
+}
+
+.footer-btns {
+
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width: 100%;
+    height: 5vh;
+    min-height: 5vh;
+    justify-content: space-evenly;
+
+
+    button {
+
+        background-color: $black_252422;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: $defaultBoxShadow;
+
+        &:hover {
+            background-color: $orange_EB5E28;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+    }
+
+    svg {
+
+        width: 35px;
+        height: 35px;
+    }
+
+    #logout {
+
+        justify-content: left;
+        width: 209px;
+        height: 60px;
+        border-radius: 25px;
+        border: 0px;
+        color: #FFF;
+        font-size: 22px;
+        letter-spacing: 4px;
+        
+        svg {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+
+    #settings, #theme {
+
+        width: 60px;
+        height: 60px;
+        border-radius: 47px;
+        border: 0px;
+    }
+
+}
