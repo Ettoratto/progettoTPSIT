@@ -1,6 +1,7 @@
 package it.ms.api.data.entity;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Id;
 
 @Entity
 @Table(name = "Administator")
@@ -8,7 +9,8 @@ public class Administator {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@Column(name = "id", unique = true)
+	private Long id;
 
 	@Column(name = "usern", unique = true)
 	private String usern;
@@ -25,7 +27,11 @@ public class Administator {
 		this.passw = passw;
 	}
 
-	public void setId(long id) {
+	public Long getId(Long id) {
+		return id;
+	}
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 
