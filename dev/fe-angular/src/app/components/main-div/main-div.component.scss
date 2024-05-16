@@ -1,0 +1,15 @@
+@import "../../../assets/_variables.scss";
+
+.container {
+
+    display: block;
+    height: 800px;
+    width: 1350px;
+    background-color: $silver_C9C6BE;
+    margin: 0 auto;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+}
