@@ -1,4 +1,4 @@
-@import "../../assets/_variables.scss";
+@import "../../../assets/_variables.scss";
 
 .container {
 
@@ -19,8 +19,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     width: 361px;
-    height: 8vh;
-    min-height: 8vh;
+    height: 90px;
     box-shadow: $defaultBoxShadow;
     border-radius: 105px;
     background-color: $white_FFFCF2;
@@ -59,7 +58,7 @@
 .placeholder {
 
     width: 361px;
-    height: 65%;
+    height: 75%;
     border-radius: 25px;
     background-color: $white_FFFCF2;
     margin-top: 20px;

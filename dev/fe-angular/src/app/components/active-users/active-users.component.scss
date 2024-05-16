@@ -1,0 +1,31 @@
+@import "../../../assets/_variables.scss";
+
+.container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
+    position:   absolute;
+    right: 0;
+    top: 0;
+    background-color: $gray_92908A;
+    width: 80px;
+    height: 50px;
+    padding-left: 10px;
+    border-bottom-left-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+
+    svg {
+
+        width: 25px;
+        height: 40px;
+        margin-right: 5px;
+    }
+
+    #number {
+        color: white;
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+}
