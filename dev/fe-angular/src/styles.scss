@@ -18,5 +18,11 @@ body {
 }
 
 button:active {
+    transform: translate(0, 1px);
     transform: scale(0.99);
+    box-shadow: none;
+}
+
+button:hover {
+    cursor: pointer;
 }

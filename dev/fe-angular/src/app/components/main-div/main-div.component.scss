@@ -1,9 +1,101 @@
 @import "../../../assets/_variables.scss";
 
+
+svg {
+
+    height: 55px;
+    width: 55px;
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.37));
+}
+
 button {
 
-    height: 100px;
-}   
+    display: flex;
+    border: none;
+    align-items: center;
+    
+}
+
+.search-bar {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    width: 55%;
+    border-radius: 125px;
+    box-shadow: $defaultBoxShadow;
+    background-color: $orange_EB5E28;
+    padding: 12px;
+    box-sizing: border-box;
+
+    input {
+
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        font-size: 22px;
+        color: $black_252422;
+        margin-left: 10px;
+
+        &:focus {
+
+            outline: none;
+        }
+
+        &::placeholder {
+
+            color: $gray_92908A;
+            letter-spacing: 4px;
+            text-shadow: $defaultTextShadow;
+        }
+    }
+
+    button {
+        
+        position: relative;
+        border-radius: 100%;
+        background: rgba($color: $black_252422, $alpha: 0);
+        margin: 5px;
+    }
+}
+
+.input-container {
+
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border: 1px solid $gray_92908A;
+    border-radius: 125px;
+    background-color: $white_FFFCF2;
+    justify-content: center;
+
+    svg {
+
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.actionBTN {
+
+    width: 230px;
+    height: 80px;
+    box-shadow: $defaultBoxShadow;
+    border-radius: 25px;
+    background-color: $orange_EB5E28;
+    font-size: 22px;
+    font-weight: lighter;
+    color: $white_FFFCF2;
+    letter-spacing: 4px;
+    text-shadow: $defaultTextShadow;
+     
+    span {
+
+        margin-left: 20px;
+    }
+} 
+
 
 .container {
 
@@ -14,7 +106,7 @@ button {
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
     box-sizing: border-box;
-    padding: 100px 50px 90px 50px;
+    padding: 80px 50px 90px 50px;
     justify-content: center;
     align-content: center;
 }
@@ -24,7 +116,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
     box-sizing: border-box;
 }
 
