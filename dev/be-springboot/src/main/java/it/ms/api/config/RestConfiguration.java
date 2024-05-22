@@ -1,4 +1,4 @@
-package it.ms.api.config;
+/*package it.ms.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -15,4 +15,4 @@ public class RestConfiguration implements RepositoryRestConfigurer {
       RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(Administator.class);
     }
-}
+}*/
