@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 public class Administator {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "administator_seq")
 	@Column(name = "id", unique = true)
 	private Long id;
 
