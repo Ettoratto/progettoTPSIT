@@ -1,19 +1,38 @@
 @import "../../../assets/_variables.scss";
 
+button {
+
+    height: 100px;
+}   
+
 .container {
 
-    height: 800px;
+    display: block;
+    height: 95%;
     width: 1350px;
     background-color: $silver_C9C6BE;
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
+    box-sizing: border-box;
+    padding: 100px 50px 90px 50px;
+    justify-content: center;
+    align-content: center;
+}
 
+.row {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .internal-container {
 
-    width: 1300px;
-    height: 85%;
-    background-color: $black_252422;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: $white_FFFCF2;
     box-shadow: $defaultBoxShadow;
 }
