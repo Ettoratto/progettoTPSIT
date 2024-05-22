@@ -1,0 +1,25 @@
+@import "../assets/_variables.scss";
+
+.container {
+
+    display: inline-flex;
+    height: 100%;
+}
+
+.activeUsers {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.sidebar {
+
+    height: 100%;
+}
+
+.mainDiv {
+
+    margin-top: 100px;
+    margin-left: 50px;
+}
