@@ -29,7 +29,7 @@ public class AdminController {
     public Valid loginRequest(@RequestBody Administator a) {
 
         Valid valid = new Valid();
-        valid.setValid(!adminRepo.findByUsernameAndPassword(a.getUsern(), a.getPassw()).isEmpty());
+        valid.setValid(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
         return valid;
     }
 
