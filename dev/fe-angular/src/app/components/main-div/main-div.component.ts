@@ -9,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class MainDivComponent {
 
+  applyBlur(){
+
+    document.body.style.filter = "blur(5px)";
+    const container = document.querySelector('.container');
+    container.renderer.setStyle(container, "cursor: not-allowed");
+  }
 }

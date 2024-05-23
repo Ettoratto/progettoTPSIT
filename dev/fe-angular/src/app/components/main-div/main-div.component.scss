@@ -128,3 +128,18 @@ button {
     background-color: $white_FFFCF2;
     box-shadow: $defaultBoxShadow;
 }
+
+.form-dialog {
+
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blur-filter {
+
+    filter: blur(8px);
+}
