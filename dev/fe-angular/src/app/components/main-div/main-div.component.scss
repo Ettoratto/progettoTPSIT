@@ -25,7 +25,7 @@ button {
     width: 55%;
     border-radius: 125px;
     box-shadow: $defaultBoxShadow;
-    background-color: $orange_EB5E28;
+    background-color: var(--accent);
     padding: 12px;
     box-sizing: border-box;
 
@@ -35,7 +35,7 @@ button {
         border: none;
         width: 100%;
         font-size: 22px;
-        color: $black_252422;
+        color: red;
         margin-left: 10px;
 
         &:focus {
@@ -45,7 +45,7 @@ button {
 
         &::placeholder {
 
-            color: $gray_92908A;
+            color: var(--third);
             letter-spacing: 4px;
             text-shadow: $defaultTextShadow;
         }
@@ -55,7 +55,7 @@ button {
         
         position: relative;
         border-radius: 100%;
-        background: rgba($color: $black_252422, $alpha: 0);
+        background: rgba($color: var(--fifth), $alpha: 0);
         margin: 5px;
     }
 }
@@ -65,9 +65,9 @@ button {
     display: flex;
     width: 100%;
     height: 50px;
-    border: 1px solid $gray_92908A;
+    border: 1px solid var(--third);
     border-radius: 125px;
-    background-color: $white_FFFCF2;
+    background-color: var(--first);
     justify-content: center;
 
     svg {
@@ -83,10 +83,10 @@ button {
     height: 80px;
     box-shadow: $defaultBoxShadow;
     border-radius: 25px;
-    background-color: $orange_EB5E28;
+    background-color: var(--accent);
     font-size: 22px;
     font-weight: lighter;
-    color: $white_FFFCF2;
+    color: var(--first);
     letter-spacing: 4px;
     text-shadow: $defaultTextShadow;
      
@@ -102,7 +102,7 @@ button {
     display: block;
     height: 95%;
     width: 1350px;
-    background-color: $silver_C9C6BE;
+    background-color: var(--second);
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
     box-sizing: border-box;
@@ -125,6 +125,6 @@ button {
     width: 100%;
     height: 100%;
     border-radius: 25px;
-    background-color: $white_FFFCF2;
+    background-color: var(--first);
     box-shadow: $defaultBoxShadow;
 }

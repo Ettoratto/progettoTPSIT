@@ -13,11 +13,13 @@ import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 export class MainDivComponent {
   constructor(public dialog: MatDialog, private scrollStrategyOptions: ScrollStrategyOptions) {}
 
-  openDialog(): void {
+  openDialog(firstName:string, lastName:string, cf:string, birth:string, phone:string, address:string, medicalCertExpiry:string): void {
     const dialogRef = this.dialog.open(DialogContentComponent, {
       scrollStrategy: this.scrollStrategyOptions.noop(),
-      width: '250px',
-      data: { /* any data you want to pass to the dialog */ }
+      panelClass: 'custom-dialog-container',
+      width: '60%',
+      height: '75%',
+      data: {firstName, lastName, cf, birth, phone, address, medicalCertExpiry}
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

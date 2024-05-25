@@ -8,6 +8,7 @@ import { MainDivComponent } from './components/main-div/main-div.component';
 import { TutorialsService } from './services/tutorials.service';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -28,5 +29,4 @@ export class AppComponent {
     });
 
   }
-
 }

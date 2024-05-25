@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $silver_C9C6BE;
+    background-color: var(--second);
     height: 100%;
     width: fit-content;
     padding: 15px;
@@ -22,19 +22,20 @@
     height: 90px;
     box-shadow: $defaultBoxShadow;
     border-radius: 105px;
-    background-color: $white_FFFCF2;
+    background-color: var(--first);
 
     #username  {
 
         letter-spacing: 4px;
         font-size: 22px;
+        color: var(--fifth);
     }
     
     #connection {
     
         letter-spacing: -1px;
         font-size: 15px;
-        color: $darkGray_5C5A56;
+        color: var(--fourth);
     }
 }
 
@@ -44,7 +45,7 @@
     height: 71px;
     border-radius: 105px;
     box-shadow: $defaultBoxShadow;
-    border: 1px solid $silver_C9C6BE;
+    border: 1px solid var(--second);
 }
 
 .user-info span {
@@ -60,7 +61,7 @@
     width: 361px;
     height: 75%;
     border-radius: 25px;
-    background-color: $white_FFFCF2;
+    background-color: var(--first);
     margin-top: 20px;
     box-shadow: $defaultBoxShadow;
 }
@@ -78,14 +79,14 @@
 
     button {
 
-        background-color: $black_252422;
+        background-color: var(--fifth);
         display: flex;
         align-items: center;
         justify-content: center;
         box-shadow: $defaultBoxShadow;
 
         &:hover {
-            background-color: $orange_EB5E28;
+            background-color: var(--accent);
             transition: background-color 0.2s ease-in-out;
         }
     }
@@ -103,18 +104,22 @@
         height: 60px;
         border-radius: 25px;
         border: 0px;
-        color: #FFF;
+        color: var(--first);
         font-size: 22px;
         letter-spacing: 4px;
         
         svg {
             margin-left: 15px;
             margin-right: 15px;
+            stroke: var(--first);
         }
     }
 
     #settings, #theme {
 
+        svg {
+            fill: var(--first);
+        }
         width: 60px;
         height: 60px;
         border-radius: 47px;
