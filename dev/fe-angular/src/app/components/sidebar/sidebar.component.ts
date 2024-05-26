@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemeService } from '../../services/theme.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,9 +10,9 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class SidebarComponent {
 
-  constructor(private themeService: ThemeService) { }
+  constructor(private appComponent: AppComponent) { }
 
   toggleTheme() {
-    this.themeService.toggleTheme();
+    this.appComponent.toggleTheme();
   }
 }

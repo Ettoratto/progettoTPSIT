@@ -79,16 +79,11 @@
 
     button {
 
-        background-color: var(--fifth);
         display: flex;
         align-items: center;
         justify-content: center;
         box-shadow: $defaultBoxShadow;
 
-        &:hover {
-            background-color: var(--accent);
-            transition: background-color 0.2s ease-in-out;
-        }
     }
 
     svg {
@@ -100,7 +95,7 @@
     #logout {
 
         justify-content: left;
-        width: 209px;
+        width: 230px;
         height: 60px;
         border-radius: 25px;
         border: 0px;

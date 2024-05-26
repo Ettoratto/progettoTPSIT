@@ -24,7 +24,7 @@ export class MainDivComponent {
 
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
-      console.log(result); // handle the result here if needed
+      console.log(result);
     });
   }
 }

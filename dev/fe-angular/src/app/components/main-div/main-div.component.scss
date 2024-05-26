@@ -29,13 +29,25 @@ button {
     padding: 12px;
     box-sizing: border-box;
 
+    &:focus-within {
+
+        transition: 0.2s ease-in-out;
+        background-color: var(--fourth);
+    }
+
+    &:hover {
+
+        transition: 0.2s ease-in-out;
+        background-color: var(--fourth);
+    }
+
     input {
 
         background-color: transparent;
         border: none;
         width: 100%;
         font-size: 22px;
-        color: red;
+        color: var(--fifth);
         margin-left: 10px;
 
         &:focus {
@@ -55,7 +67,7 @@ button {
         
         position: relative;
         border-radius: 100%;
-        background: rgba($color: var(--fifth), $alpha: 0);
+        background: rgba($color: var(--accent), $alpha: 0);
         margin: 5px;
     }
 }
@@ -74,6 +86,7 @@ button {
 
         width: 45px;
         height: 45px;
+        stroke: var(--fourth);
     }
 }
 
@@ -83,16 +96,25 @@ button {
     height: 80px;
     box-shadow: $defaultBoxShadow;
     border-radius: 25px;
-    background-color: var(--accent);
     font-size: 22px;
     font-weight: lighter;
     color: var(--first);
     letter-spacing: 4px;
     text-shadow: $defaultTextShadow;
-     
+
     span {
 
         margin-left: 20px;
+    }
+
+    #add {
+
+        stroke: var(--first);
+    }
+
+    #check {
+
+        fill: var(--first);
     }
 } 
 

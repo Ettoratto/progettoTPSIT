@@ -23,10 +23,38 @@ export class AppComponent {
 
   constructor(private tutorialsService: TutorialsService) {}
 
-  ngOnInit() {
+  /* ngOnInit() {
     this.tutorialsService.getTutorials().subscribe((data: any) => {
       this.tutorials = data;
     });
 
   }
+ */
+
+  isDarkTheme: boolean = false;
+  toggleTheme() {
+
+    if(this.isDarkTheme) {
+      this.setCustomProperty('--first', '#FFFCF2');
+      this.setCustomProperty('--second', '#C9C6BE');
+      this.setCustomProperty('--third', '#92908A');
+      this.setCustomProperty('--fourth', '#5C5A56');
+      this.setCustomProperty('--fifth', '#252422');
+      this.setCustomProperty('--accent', '#EB5E28');
+    }else{
+      this.setCustomProperty('--first', '#14110F');
+      this.setCustomProperty('--second', '#34312D');
+      this.setCustomProperty('--third', '#7E7F83');
+      this.setCustomProperty('--fourth', '#B9B9BC');
+      this.setCustomProperty('--fifth', '#FFFCF2');
+      this.setCustomProperty('--accent', '#D9C5B2');
+
+    }
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  setCustomProperty(propertyName: string, value: string): void {
+    document.documentElement.style.setProperty(propertyName, value);
+  }
+
 }

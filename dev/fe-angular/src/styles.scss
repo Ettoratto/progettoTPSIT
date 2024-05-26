@@ -51,7 +51,12 @@ body {
     padding: 0;
     height: 100vh;
     overflow-y: hidden;
-    background-color: var(--primary);
+    background-color: var(--first);
+}
+
+button {
+
+  background-color: var(--accent);
 }
 
 button:active {
@@ -61,5 +66,27 @@ button:active {
 }
 
 button:hover {
-    cursor: pointer;
+    cursor: pointer;    
+    background-color: var(--fourth);
+    transition: background-color 0.2s ease-in-out;
+
+}
+
+.cdk-overlay-backdrop {
+  backdrop-filter: blur(5px);
+}
+
+.mat-dialog-container {
+  background: transparent;
+  box-shadow: none;
+}
+
+:root {
+  --first: #FFFCF2;
+  --second: #C9C6BE;
+  --third: #92908A;
+  --fourth: #5C5A56;
+  --fifth: #252422;
+  --accent: #EB5E28;
+
 }
