@@ -81,6 +81,14 @@ button:hover {
   box-shadow: none;
 }
 
+.mdc-button__label {
+  color: var(--accent);
+}
+
+.mat-mdc-snack-bar-label .mdc-snackbar__label {
+  color: var(--first);
+}
+
 :root {
   --first: #FFFCF2;
   --second: #C9C6BE;

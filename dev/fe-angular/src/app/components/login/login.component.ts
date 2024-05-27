@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { CommonModule, JsonPipe, NgIf } from '@angular/common';
 import { LoginService } from '../../services/login.service';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,28 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
 
-  constructor (private loginService: LoginService) {}
+  constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar) {}
 
-  submitLoginForm(){
-    this.loginService.tryLogin();
+  openSnackBar() {
+    this._snackBar.open("Username o password errati", "Chiudi");
+  } 
+
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  submitLoginForm() {
+    if (this.loginForm.valid) {
+      this.loginService.tryLogin();
+    } else {
+      this.openSnackBar();
+      this.loginForm.markAllAsTouched();
+    }
   }
 }
