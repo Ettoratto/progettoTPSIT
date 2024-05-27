@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
     this._snackBar.open("Username o password errati", "Chiudi");
   } 
 
+  closeSnackBar() {
+    this._snackBar.dismiss();
+  }
+
   ngOnInit() {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -31,6 +35,7 @@ export class LoginComponent implements OnInit {
   submitLoginForm() {
     if (this.loginForm.valid) {
       this.loginService.tryLogin();
+      this.closeSnackBar();
     } else {
       this.openSnackBar();
       this.loginForm.markAllAsTouched();
