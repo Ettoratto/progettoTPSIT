@@ -24,21 +24,31 @@ public class AdminController {
     ResponseEntity<?> admin() {
         return ResponseEntity.ok(adminRepo.findAll());
     }
-
-    @PostMapping("/login")
-    public String loginRequest(@RequestBody Administator a) {
+/* 
+@PostMapping("/login")
+public String loginRequest(@RequestBody Administator a) {
 /*
 Valid valid = new Valid();
 valid.setValid(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
-*/
-System.out.println(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
-        if (!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty()==true) {
-            return "{'valid': 'true'}";
-        } else {
-            return "{'valid': 'false'}";
-        }
-    }
 
+System.out.println(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
+    if (!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty()==true) {
+        return "{'valid': 'true'}";
+    } else {
+        return "{'valid': 'false'}";
+    }
+}
+*/
+@PostMapping("/login")
+public ResponseEntity<String> loginRequest(@RequestBody Administator a) {
+    boolean isValid = !adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty();
+    System.out.println(isValid);
+    if (isValid) {
+        return ResponseEntity.ok("{\"valid\": \"true\"}");
+    } else {
+        return ResponseEntity.ok("{\"valid\": \"false\"}");
+    }
+}
     
 
     
