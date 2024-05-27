@@ -26,11 +26,17 @@ public class AdminController {
     }
 
     @PostMapping("/login")
-    public Valid loginRequest(@RequestBody Administator a) {
-
-        Valid valid = new Valid();
-        valid.setValid(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
-        return valid;
+    public String loginRequest(@RequestBody Administator a) {
+/*
+Valid valid = new Valid();
+valid.setValid(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
+*/
+System.out.println(!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty());
+        if (!adminRepo.findByUsernAndPassw(a.getUsern(), a.getPassw()).isEmpty()==true) {
+            return "{'valid': 'true'}";
+        } else {
+            return "{'valid': 'false'}";
+        }
     }
 
     
