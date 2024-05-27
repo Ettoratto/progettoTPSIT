@@ -6,23 +6,22 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ActiveUsersComponent } from './components/active-users/active-users.component';
 import { MainDivComponent } from './components/main-div/main-div.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JsonPipe, HttpClientModule, SidebarComponent, ActiveUsersComponent, MainDivComponent, MatDialogModule],
+  imports: [RouterOutlet, JsonPipe, HttpClientModule, SidebarComponent, ActiveUsersComponent, MainDivComponent, MatDialogModule, LoginComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'fe-angular';
-
-  tutorials: any;
+  isDarkTheme: boolean = false; 
+  login:boolean = false;
 
   constructor() {}
 
-  isDarkTheme: boolean = false;
   toggleTheme() {
 
     if(this.isDarkTheme) {
