@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppComponent } from '../../app.component';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,9 +11,14 @@ import { AppComponent } from '../../app.component';
 })
 export class SidebarComponent {
 
-  constructor(private appComponent: AppComponent) { }
+  constructor(private appComponent: AppComponent, private loginService: LoginService) { }
 
   toggleTheme() {
     this.appComponent.toggleTheme();
   }
+
+  logOut() {
+    this.loginService.logOut();
+  }
+
 }

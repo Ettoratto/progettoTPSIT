@@ -1,5 +1,5 @@
-<app-login *ngIf="!login"></app-login>
-<div *ngIf="login" class="container">
+<app-login *ngIf="!this.login"></app-login>
+<div *ngIf="this.login" class="container">
     <app-sidebar class="sidebar"></app-sidebar>
     <app-main-div class="mainDiv"></app-main-div>
     <app-active-users class="activeUsers"></app-active-users>

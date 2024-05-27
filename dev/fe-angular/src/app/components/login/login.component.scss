@@ -1,0 +1,145 @@
+@import "../../../assets/_variables.scss";
+
+
+.banner {
+
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 90%;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: #262626;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+
+    img {
+
+        border-radius: 25px;
+    }
+}
+
+.header {
+    
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+    padding-top: 50px;
+     h1 {
+
+        color: var(--first);
+        font-size: 100px;
+        font-weight: 500;
+        text-shadow: -1px 0 #c7c5bd, -7px 0 #c7c5bd;
+        letter-spacing: 30px;
+        margin: 0;
+    }
+
+    h3 {
+
+        margin: 0;
+        font-size: 30px;
+        color: var(--first);
+        letter-spacing: 10px;
+        font-weight: 300;
+        font-weight: 30px;
+    }
+
+}
+
+
+.form-container {
+
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    width: 30%;
+    height: 30%;
+    background-color: var(--fifth);
+    border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+    justify-content: center;
+
+    form {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+
+        margin-top: 20px;
+        border: none;
+        display: flex;
+        align-items: center;
+        width: 220px;
+        height: 60px;
+        box-shadow: $defaultBoxShadow;
+        box-sizing: border-box;
+        border-radius: 25px;
+        font-size: 20px;
+        font-weight: lighter;
+        color: var(--first);
+        letter-spacing: 4px;
+        text-shadow: $defaultTextShadow;
+        padding-left: 20px;
+    
+        span {
+    
+            margin-left: 20px;
+        }
+        svg {
+    
+            width: 50px;
+            height: 50px;
+            stroke: var(--first);
+        }
+    }
+}
+
+.form-group {
+    
+    display: flex;
+    flex-direction: column;
+    background-color: var(--accent);
+    width: 100%;
+    height: 55%;
+    border-radius: 25px;
+    padding: 30px 25px 15px 25px;
+    box-shadow: $defaultBoxShadow;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+input {
+
+    text-align: center;
+    width: 400px;
+    border: none;
+    background-color: var(--first);
+    color: var(--fifth);
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: $defaultBoxShadow;
+    box-sizing: border-box;
+    padding-left: 10px;
+
+    &::placeholder {
+
+        color: var(--third);
+    }
+
+    &:focus {
+
+        outline: none;
+    }
+}
+

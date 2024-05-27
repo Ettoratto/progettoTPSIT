@@ -1,26 +1,44 @@
 import { CommonModule, JsonPipe, NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ActiveUsersComponent } from './components/active-users/active-users.component';
 import { MainDivComponent } from './components/main-div/main-div.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './services/login.service';
+import { Subscription } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JsonPipe, HttpClientModule, SidebarComponent, ActiveUsersComponent, MainDivComponent, MatDialogModule, LoginComponent, CommonModule],
+  imports: [RouterOutlet, JsonPipe, HttpClientModule, SidebarComponent, ActiveUsersComponent, MainDivComponent, MatDialogModule, LoginComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'fe-angular';
-  isDarkTheme: boolean = false; 
+  isDarkTheme: boolean = false;
+
   login:boolean = false;
 
-  constructor() {}
+  private loginSubscription: Subscription | undefined;
+
+  constructor(private loginService: LoginService) {}
+  ngOnInit() {
+      this.login = this.loginService.getLogin();
+      this.loginSubscription = this.loginService.loginStatusChanged.subscribe(status => {
+      this.login = status;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.loginSubscription) {
+      this.loginSubscription.unsubscribe();
+    }
+  }
 
   toggleTheme() {
 
