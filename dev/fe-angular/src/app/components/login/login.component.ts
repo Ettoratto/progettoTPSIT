@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule, JsonPipe, NgIf } from '@angular/common';
 import { LoginService } from '../../services/login.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,16 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  data: any;
+  username!: string;
+  password!: string;
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar) {}
-
-  openSnackBar() {
-    this._snackBar.open("Username o password errati", "Chiudi");
-  } 
-
-  closeSnackBar() {
-    this._snackBar.dismiss();
-  }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -32,13 +26,41 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  openSnackBar(msg: string) {
+    this._snackBar.open(msg, "Chiudi");
+  } 
+
+  closeSnackBar() {
+    this._snackBar.dismiss();
+  }
+
   submitLoginForm() {
     if (this.loginForm.valid) {
-      this.loginService.tryLogin();
-      this.closeSnackBar();
-    } else {
-      this.openSnackBar();
-      this.loginForm.markAllAsTouched();
-    }
+      const usernameControl = this.loginForm.get('username');
+      const passwordControl = this.loginForm.get('password');
+
+      if (usernameControl && passwordControl) {
+        const username = usernameControl.value;
+        const password = passwordControl.value;
+
+        console.log('Username:', username);
+        console.log('Password:', password);
+
+        const body = `{"username": "${username}","password": "${password}"}`;
+
+        this.loginService.tryLogin(body).subscribe(response => {
+          this.data = response;
+          if (this.data.valid)
+            this.closeSnackBar();
+          else
+            this.openSnackBar("Username o password errati");
+        });
+      }
+    }else
+      this.openSnackBar("Inserire username e password");
   }
+
+
+
+
 }
