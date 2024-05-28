@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 
 @Entity
 @Table(name = "Customers")
-public class Customers {
+public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Customers {
 	private String phone;
 
 	@Column(name = "codice_fiscale" , unique = true)
-	private String codice_fiscale;
+	private String codiceFiscale;
 
 	@Column(name = "address")
 	private String address;
@@ -33,15 +33,15 @@ public class Customers {
 	@Column(name = "date_of_birth")
 	private String date_of_birth;
 
-	public Customers() {
+	public Customer() {
 	}
 
-	public Customers(String first_name, String last_name, String phone, String codice_fiscale, String address,
+	public Customer(String first_name, String last_name, String phone, String codice_fiscale, String address,
 			String string, String string2) {
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.phone = phone;
-		this.codice_fiscale = codice_fiscale;
+		this.codiceFiscale = codice_fiscale;
 		this.address = address;
 		this.medical_certificate_date = string;
 		this.date_of_birth = string2;
@@ -80,11 +80,11 @@ public class Customers {
 	}
 
 	public String getCodice_fiscale() {
-		return codice_fiscale;
+		return codiceFiscale;
 	}
 
 	public void setCodice_fiscale(String codice_fiscale) {
-		this.codice_fiscale = codice_fiscale;
+		this.codiceFiscale = codice_fiscale;
 	}
 
 	public String getAddress() {
@@ -114,7 +114,7 @@ public class Customers {
 	@Override
 	public String toString() {
 		return "Customers [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", phone=" + phone
-				+ ", codice_fiscale=" + codice_fiscale + ", address=" + address + ", medical_certificate_date="
+				+ ", codice_fiscale=" + codiceFiscale + ", address=" + address + ", medical_certificate_date="
 				+ medical_certificate_date + ", date_of_birth=" + date_of_birth + "]";
 	}
 
