@@ -1,14 +1,13 @@
 package it.ms.api.data.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Id;
 
 @Entity
 @Table(name = "Administator")
 public class Administator {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "administator_seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true)
 	private Long id;
 
