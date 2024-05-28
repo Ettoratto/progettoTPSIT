@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators, FormsModule, ReactiveFormsModule, FormGroupDirective } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule, JsonPipe, NgIf } from '@angular/common';
 import { LoginService } from '../../services/login.service';
@@ -9,13 +9,14 @@ import { LoginService } from '../../services/login.service';
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule, CommonModule, JsonPipe, NgIf],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   data: any;
   username!: string;
   password!: string;
+  response: boolean = false;
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar) {}
 
@@ -43,24 +44,23 @@ export class LoginComponent implements OnInit {
         const username = usernameControl.value;
         const password = passwordControl.value;
 
-        console.log('Username:', username);
-        console.log('Password:', password);
-
         const body = `{"usern": "${username}", "passw": "${password}"}`;
 
-        this.loginService.tryLogin(body).subscribe(response => {
-          this.data = response;
-          if (this.data.valid == "true")
-            this.closeSnackBar();
-          else
-            this.openSnackBar("Username o password errati");
+        this.loginService.tryLogin(body).subscribe({
+          next: success => {
+            if (success) {
+              this.closeSnackBar();
+            } else {
+              this.openSnackBar("Username o password errati");
+            }
+          },
+          error: error => {
+            this.openSnackBar("An error occurred during login");
+          }
         });
       }
-    }else
+    } else {
       this.openSnackBar("Inserire username e password");
+    }
   }
-
-
-
-
 }

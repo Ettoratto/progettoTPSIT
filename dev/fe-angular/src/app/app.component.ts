@@ -28,7 +28,6 @@ export class AppComponent {
 
   constructor(private loginService: LoginService) {}
   ngOnInit() {
-      this.login = this.loginService.getLogin();
       
       this.loginSubscription = this.loginService.loginStatusChanged.subscribe(status => {
       this.login = status;
