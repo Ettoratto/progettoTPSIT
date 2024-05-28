@@ -46,11 +46,11 @@ export class LoginComponent implements OnInit {
         console.log('Username:', username);
         console.log('Password:', password);
 
-        const body = `{"username": "${username}","password": "${password}"}`;
+        const body = `{"usern": "${username}", "passw": "${password}"}`;
 
         this.loginService.tryLogin(body).subscribe(response => {
           this.data = response;
-          if (this.data.valid)
+          if (this.data.valid == "true")
             this.closeSnackBar();
           else
             this.openSnackBar("Username o password errati");

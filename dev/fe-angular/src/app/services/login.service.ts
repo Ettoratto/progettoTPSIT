@@ -14,13 +14,14 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
 
   tryLogin(data: any) {
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-        })
-      };
-      return this.httpClient.post("http://localhost:8080/admins/login", data, httpOptions);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',        
+      })
+    };
+    return this.httpClient.post("/api/admins/login", data, httpOptions);
   }
+
 
   logOut(){
 
