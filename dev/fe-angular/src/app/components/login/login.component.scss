@@ -5,7 +5,7 @@
 
     margin: 0 auto;
     margin-top: 50px;
-    width: 90%;
+    width: fit-content;
     height: 300px;
     box-sizing: border-box;
     background-color: #262626;
@@ -25,13 +25,15 @@
     box-sizing: border-box;
     text-align: center;
     display: inline-block;
+    width:  max-content;
     padding-top: 50px;
      h1 {
 
         color: var(--first);
+        min-width: max-content;
         font-size: 100px;
         font-weight: 500;
-        text-shadow: -1px 0 #c7c5bd, -7px 0 #c7c5bd;
+        text-shadow: -7px 0 #c7c5bd;
         letter-spacing: 30px;
         margin: 0;
     }
@@ -39,6 +41,7 @@
     h3 {
 
         margin: 0;
+        margin-top: 5%;
         font-size: 30px;
         color: var(--first);
         letter-spacing: 10px;
@@ -96,6 +99,12 @@
             width: 50px;
             height: 50px;
             stroke: var(--first);
+        }
+
+        &:hover {
+
+            background-color: var(--fourth);
+            transition: 0.2s;
         }
     }
 }

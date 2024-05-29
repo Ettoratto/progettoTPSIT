@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  updateUsername(user: string) {
+    this.loginService.setUsername(user);
+  }
+
   openSnackBar(msg: string) {
     this._snackBar.open(msg, "Chiudi");
   } 
@@ -43,6 +47,8 @@ export class LoginComponent implements OnInit {
       if (usernameControl && passwordControl) {
         const username = usernameControl.value;
         const password = passwordControl.value;
+
+        this.updateUsername(username);
 
         const body = `{"usern": "${username}", "passw": "${password}"}`;
 

@@ -2,15 +2,15 @@
     <div class="user-pill">
         <img src="../../assets/img/user.jpg" alt="user" class="user-propic">
         <div class="user-info">
-            <span id="username">Nome Utente</span><br>
-            <span id="connection">Accesso alle:</span>
+            <span id="username">{{username}}</span><br>
+            <span id="connection">Accesso alle: {{accessTime}}</span>
         </div>
     </div>
     <div class="placeholder">
         
     </div>
     <div class="footer-btns">
-        <button id="logout" (click)="logOut()">
+        <button id="logout" (click)="logOutDialog()">
             <svg viewBox="0 0 24 24" fill="none">
                 <path d="M14 20H6C4.89543 20 4 19.1046 4 18L4 6C4 4.89543 4.89543 4 6 4H14M10 12H21M21 12L18 15M21 12L18 9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>

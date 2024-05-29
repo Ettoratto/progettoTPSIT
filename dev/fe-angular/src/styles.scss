@@ -67,7 +67,7 @@ button:active {
 
 button:hover {
     cursor: pointer;    
-    background-color: var(--fourth);
+    background-color: var(--fifth);
     transition: background-color 0.2s ease-in-out;
 
 }
@@ -76,9 +76,8 @@ button:hover {
   backdrop-filter: blur(5px);
 }
 
-.mat-dialog-container {
-  background: transparent;
-  box-shadow: none;
+.mat-mdc-dialog-container .mdc-dialog .cdk-dialog-container .mdc-dialog--open{
+  background-color: var(--accent);
 }
 
 .mdc-button__label {
@@ -99,3 +98,4 @@ button:hover {
   --accent: #EB5E28;
 
 }
+

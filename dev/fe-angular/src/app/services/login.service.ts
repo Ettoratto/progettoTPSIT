@@ -12,16 +12,28 @@ export class LoginService {
   login: boolean = false;
   data: any;
 
+  private usernameSubject = new BehaviorSubject<string | null>(null);  // Initialize with a default value
+  username$ = this.usernameSubject.asObservable();
+
   constructor(private httpClient: HttpClient) { }
 
-  tryLogin(data: any): Observable<boolean> {
+  setUsername(username: string) {
+    this.usernameSubject.next(username);
+  }
+
+  getUsername() {
+    return this.usernameSubject.value;
+  }
+
+
+  tryLogin(body: any): Observable<boolean> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
     };
     return new Observable<boolean>(observer => {
-      this.httpClient.post<any>("http://localhost:4200/api/admins/login", data, httpOptions).subscribe({
+      this.httpClient.post<any>("http://localhost:4200/api/admins/login", body, httpOptions).subscribe({
         next: response => {
           this.data = response;
           if (this.data.valid === "true") {
@@ -41,7 +53,7 @@ export class LoginService {
   }
 
   logOut() {
-    this.loginSubject.next(false);
+    this.loginSubject.next(false);  
   }
 
   getLogin(): boolean {

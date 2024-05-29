@@ -1,0 +1,64 @@
+@import "../../../assets/_variables.scss";
+
+.container {
+
+    background-color: var(--first);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.button-container {
+
+    display: flex;
+    width: 100%;
+    align-self: baseline;
+    margin-bottom: 10%;
+    justify-content: space-evenly;
+}
+
+button {
+
+    width: 40%;
+    height: 60px;
+    border-radius: 25px;
+    border: none;
+    color: var(--first);
+    box-shadow: $defaultBoxShadow;
+    font-size: 25px;
+    font-weight: 400;
+    transition: 0.2s;
+    letter-spacing: 5px;
+    text-shadow: $defaultTextShadow;
+    background-color: var(--accent);
+
+}
+
+#logOut {
+    
+    &:hover {
+        background-color: red;
+        transition: 0.2s;
+    }
+}
+
+#cancel {
+    
+    &:hover {
+        background-color: var(--fifth);
+        transition: 0.2s;
+    }
+}
+
+span {
+
+    align-self: center;
+    font-size: 25px;
+    letter-spacing: 4px;
+    color: var(--fifth);
+    margin-bottom: 10%;
+    margin-top: 10%;
+    text-shadow: $defaultTextShadow;
+}

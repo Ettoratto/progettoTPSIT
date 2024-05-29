@@ -1,6 +1,6 @@
 import { CommonModule, JsonPipe, NgIf } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ActiveUsersComponent } from './components/active-users/active-users.component';
@@ -11,6 +11,9 @@ import { LoginService } from './services/login.service';
 import { Subscription } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-root',
   standalone: true,
