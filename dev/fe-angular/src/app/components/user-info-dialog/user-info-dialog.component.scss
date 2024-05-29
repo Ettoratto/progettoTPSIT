@@ -1,0 +1,111 @@
+@import "../../../assets/_variables.scss";
+
+.container {
+
+    display: flex;
+    background-color: var(--first);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.row {
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 10px;
+    background-color: var(--third);
+    box-sizing: border-box;
+    margin: 12px 35px;
+    border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+
+    &:focus-within {
+
+        background-color: var(--accent);
+        transition: 0.2s;
+    }
+    &:hover {
+
+        background-color: var(--accent);
+        transition: 0.2s;
+    }
+
+    input, select {
+
+        background-color: var(--first);
+        box-sizing: border-box;
+        width: 350px;
+        height: 40px;
+        border-radius: 25px;
+        font-size: 20;
+        letter-spacing: 1px;
+        border: 1px solid var(--third);
+        box-shadow: $defaultBoxShadow;
+        padding: 10px;
+        text-shadow: $defaultTextShadow;
+        overflow: hidden;
+
+        &:focus {
+
+            outline: none;
+        }
+        
+    }
+
+    label {
+
+        font-size: 18px;
+        color: var(--first);
+        text-shadow: $defaultTextShadow;
+        letter-spacing: 2px;
+        text-shadow: $defaultTextShadow;
+    }
+}
+
+.btn-row {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px 50px
+}
+
+svg  {
+
+    width: 30px;
+    height: 30px;
+    stroke: var(--first);
+}
+
+button {
+
+    justify-content: center;
+    width: 160px;
+    height: 60px;
+    display: flex;
+    border: none;
+    align-items: center;
+    letter-spacing: 2px;
+    text-shadow: $defaultTextShadow;
+    font-size: 20px;
+    color: var(--first);
+    border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+    padding-left: 10px;
+}
+
+#confirm:hover {
+
+    background-color: green;
+}
+
+
+#cancel:hover {
+
+    background-color: red;
+}

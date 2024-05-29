@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {DialogContentComponent} from '../dialog-content/dialog-content.component';
+import { UserInfoDialogComponent } from '../user-info-dialog/user-info-dialog.component';
 import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 
 @Component({
@@ -14,11 +14,11 @@ export class MainDivComponent {
   constructor(public dialog: MatDialog, private scrollStrategyOptions: ScrollStrategyOptions) {}
 
   openDialog(firstName:string, lastName:string, cf:string, birth:string, phone:string, address:string, medicalCertExpiry:string): void {
-    const dialogRef = this.dialog.open(DialogContentComponent, {
+    const dialogRef = this.dialog.open(UserInfoDialogComponent, {
       scrollStrategy: this.scrollStrategyOptions.noop(),
       panelClass: 'custom-dialog-container',
       width: '60%',
-      height: '75%',
+      height: '70%',
       data: {firstName, lastName, cf, birth, phone, address, medicalCertExpiry}
     });
 

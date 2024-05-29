@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DialogContentComponent } from '../dialog-content/dialog-content.component';
+import { UserInfoDialogComponent } from '../user-info-dialog/user-info-dialog.component';
 import { DialogRef } from '@angular/cdk/dialog';
 
 @Injectable({

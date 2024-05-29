@@ -32,13 +32,13 @@ button {
     &:focus-within {
 
         transition: 0.2s ease-in-out;
-        background-color: var(--fourth);
+        background-color: var(--fifth);
     }
 
     &:hover {
 
         transition: 0.2s ease-in-out;
-        background-color: var(--fourth);
+        background-color: var(--fifth);
     }
 
     input {
@@ -123,12 +123,12 @@ button {
 
     display: block;
     height: 95%;
-    width: 140%;
+    width: 165%;
     background-color: var(--second);
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
     box-sizing: border-box;
-    padding: 30px 50px 125px 50px;
+    padding: 10% 5% 10% 5%;
     justify-content: center;
     align-content: center;
 }
