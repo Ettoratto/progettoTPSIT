@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserInfoDialogComponent } from '../user-info-dialog/user-info-dialog.component';
 import { ScrollStrategyOptions } from '@angular/cdk/overlay';
+import { subscribeOn } from 'rxjs';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-main-div',
   standalone: true,
@@ -13,18 +17,18 @@ import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 export class MainDivComponent {
   constructor(public dialog: MatDialog, private scrollStrategyOptions: ScrollStrategyOptions) {}
 
-  openDialog(firstName:string, lastName:string, cf:string, birth:string, phone:string, address:string, medicalCertExpiry:string): void {
-    const dialogRef = this.dialog.open(UserInfoDialogComponent, {
+  openDialog(userEdit:boolean, firstName:string, lastName:string, cf:string, birth:string, phone:string, address:string, email:string, subscribtion:string, medicalCertExpiry:string): void {
+      this.dialog.open(UserInfoDialogComponent, {
       scrollStrategy: this.scrollStrategyOptions.noop(),
       panelClass: 'custom-dialog-container',
       width: '60%',
       height: '70%',
-      data: {firstName, lastName, cf, birth, phone, address, medicalCertExpiry}
+      data: {userEdit, firstName, lastName, cf, birth, phone, address, email, subscribtion, medicalCertExpiry}
+      
     });
+  }
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed');
-      console.log(result);
-    });
+  closeDialog() {
+    this.dialog.closeAll();
   }
 }
