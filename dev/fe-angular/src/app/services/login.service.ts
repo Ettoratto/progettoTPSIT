@@ -12,7 +12,7 @@ export class LoginService {
   login: boolean = false;
   data: any;
 
-  private usernameSubject = new BehaviorSubject<string | null>(null);  // Initialize with a default value
+  private usernameSubject = new BehaviorSubject<string | null>(null);
   username$ = this.usernameSubject.asObservable();
 
   constructor(private httpClient: HttpClient) { }

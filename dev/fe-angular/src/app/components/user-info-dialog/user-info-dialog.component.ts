@@ -28,6 +28,14 @@ export class UserInfoDialogComponent {
 
   ngOnInit() {
     this.userForm = this.fb.group({
+      nome: [''],
+      cognome: [''],
+      dataNascita: [''],
+      telefono: [''],
+      indirizzo: [''],
+      email: [''],
+      tipoAbbonamento: [''],
+      scadenzaCertificato: [''],
       codiceFiscale: ['', Validators.required]
     });
 
@@ -61,42 +69,59 @@ export class UserInfoDialogComponent {
 
   editUser() {
 
-    if(!this.checkCodiceFiscale()) {
-      this.openSnackBar("Codice fiscale non valido");
-    }else{
-      this.createBody();
-      this.addEditUserService.editUser(this.body);
-    }
-    
+    this.createBody();
+    this.addEditUserService.editUser(this.body);
     this.mainDiv.closeDialog();
   }
 
   addUser() {
+
+    this.createBody();
+    this.addEditUserService.addUser(this.body).subscribe({
+      next: success => {
+        if (success) {
+          this.openSnackBar("Utente registrato con successo!");
+          this.mainDiv.closeDialog();
+        } else 
+          this.openSnackBar("");
+      },
+      error: error => {
+        this.openSnackBar("Errore durante la registrazione");
+      }
+    });
+    
   }
 
   createBody() {
     this.body = {
-      firstName: this.userForm.get('firstName')?.value,
-      lastName: this.userForm.get('lastName')?.value,
-      codiceFiscale: this.userForm.get('codiceFiscale')?.value,
-      birth: this.userForm.get('birth')?.value,
-      phone: this.userForm.get('phone')?.value,
-      address: this.userForm.get('address')?.value,
+      first_name: this.userForm.get('nome')?.value,
+      last_name: this.userForm.get('cognome')?.value,
+      codice_fiscale: this.userForm.get('codiceFiscale')?.value,
+      date_of_birth: this.userForm.get('dataNascita')?.value,
+      phone: this.userForm.get('telefono')?.value,
+      address: this.userForm.get('indirizzo')?.value,
       email: this.userForm.get('email')?.value,
-      subscribtion: this.userForm.get('subscribtion')?.value,
-      medicalCertExpiry: this.userForm.get('medicalCertExpiry')?.value
+      subscribtion: this.userForm.get('tipoAbbonamento')?.value,
+      medical_certificate_date: this.userForm.get('scadenzaCertificato')?.value
     };
   }
 
   fillInputs() {
 
-    if(this.checkUser()){
-
-      
-    }
+    this.addEditUserService.getUser(this.data.codiceFiscale).subscribe((response:any) => {
+      this.userForm.get('nome')?.setValue(response.firstName);
+      this.userForm.get('cognome')?.setValue(response.lastName);
+      this.userForm.get('codiceFiscale')?.setValue(response.codiceFiscale);
+      this.userForm.get('dataNascita')?.setValue(response.birth);
+      this.userForm.get('telefono')?.setValue(response.phone);
+      this.userForm.get('indirizzo')?.setValue(response.address);
+      this.userForm.get('email')?.setValue(response.email);
+      this.userForm.get('tipoAbbonamento')?.setValue(response.subscribtion);
+      this.userForm.get('scadenzaCertificato')?.setValue(response.medicalCertExpiry);
+    });
   }
 
-  checkUser() {
+  findUserCF() {
 
     this.userForm.get('codiceFiscale')?.setValue(this.data.codiceFiscale);
     this.inputs = this.addEditUserService.getUser(this.data.codiceFiscale).subscribe(response => {
@@ -113,6 +138,7 @@ export class UserInfoDialogComponent {
   }
 
   cancel() {
+    
     this.mainDiv.closeDialog();
   }
 }
