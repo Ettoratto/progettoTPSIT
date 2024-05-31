@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { LogOutDialogComponent } from '../log-out-dialog/log-out-dialog.component';
+import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ import { LogOutDialogComponent } from '../log-out-dialog/log-out-dialog.componen
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [],
+  imports: [NgIf, CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })
@@ -23,6 +25,7 @@ export class SidebarComponent{
   username: string = "";
   private subscription: Subscription | undefined;
   accessTime: string = "";
+  isDarkTheme: boolean = false;
 
 
 
@@ -46,6 +49,7 @@ export class SidebarComponent{
   }
 
   toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
     this.appComponent.toggleTheme();
   }
 

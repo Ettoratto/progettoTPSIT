@@ -99,27 +99,7 @@ button:hover {
 
 }
 
-/* For Webkit Browsers (Chrome, Safari) */
-::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-  height: 12px; /* Height of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: var(--first); /* Color of the track */
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--second); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--fourth); /* Color of the scrollbar thumb on hover */
-}
-
-/* For Firefox */
 * {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: var(--fourth) var(--first); /* Thumb and track colors */
+  scrollbar-width: thin;
+  scrollbar-color: var(--fourth) var(--first); 
 }

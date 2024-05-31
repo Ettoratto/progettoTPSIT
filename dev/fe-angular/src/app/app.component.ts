@@ -64,6 +64,8 @@ export class AppComponent {
     this.isDarkTheme = !this.isDarkTheme;
   }
 
+
+
   setCustomProperty(propertyName: string, value: string): void {
     document.documentElement.style.setProperty(propertyName, value);
   }

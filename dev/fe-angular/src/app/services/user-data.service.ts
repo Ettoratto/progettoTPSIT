@@ -7,9 +7,21 @@ import { Observable } from 'rxjs';
 })
 export class UserDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   public getUsers(): Observable<any> {
-    return this.http.get('https://localhost:/users'); //da finire
+  
+    return new Observable<any[]>(observer => {
+      this.httpClient.get<any[]>("http://localhost:4200/api/users/list").subscribe({
+        next: response => {
+          observer.next(response);
+          observer.complete();
+        },
+        error: error => {
+          observer.error(error);
+          observer.complete();
+        }
+      });
+    });
   }
 }

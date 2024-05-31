@@ -121,16 +121,13 @@ button {
 
 .container {
 
-    display: block;
     height: 95%;
     width: 165%;
     background-color: var(--second);
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
     box-sizing: border-box;
-    padding: 10% 5% 10% 5%;
-    justify-content: center;
-    align-content: center;
+    padding: 5%;
 }
 
 .row {
@@ -139,6 +136,12 @@ button {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;    
+    box-sizing: border-box;
+}
+
+.wrapper {
+
+    height: 88%;
     box-sizing: border-box;
 }
 
@@ -167,7 +170,7 @@ button {
     box-sizing: border-box;
 }
 
-.user-info {
+.user-info-wrapper {
 
     background-color: var(--fifth);
     height: 100%;
@@ -175,10 +178,51 @@ button {
     border-radius: 25px;
 }
 
-.user-data {
+.user-data-container {
 
     height: 100%;
     width: 70%;
-    border: 5px solid red;
     box-sizing: border-box;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.user-card {
+
+    display: flex;
+    border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
+    height: 80px;
+    width: 100%;
+    background-color: var(--fourth);
+    color: var(--first);
+    box-sizing: border-box;
+    margin-bottom: 3%;;
+
+    &:hover {
+
+        cursor: pointer;
+        scale: 1.03;
+        transition: 0.2s ease-in;
+    }
+}
+
+.checkBox {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--third);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    align-self: flex-start;
+    height: 100%;
+    border-right: 1px solid var(--first);
+
+    svg {
+        
+        width: 60px;
+        height: 60px;
+        stroke: var(--first);
+    }
 }
