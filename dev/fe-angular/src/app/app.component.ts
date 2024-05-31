@@ -53,12 +53,12 @@ export class AppComponent {
       this.setCustomProperty('--fifth', '#252422');
       this.setCustomProperty('--accent', '#EB5E28');
     }else{
-      this.setCustomProperty('--first', '#14110F');
-      this.setCustomProperty('--second', '#34312D');
-      this.setCustomProperty('--third', '#7E7F83');
-      this.setCustomProperty('--fourth', '#B9B9BC');
-      this.setCustomProperty('--fifth', '#FFFCF2');
-      this.setCustomProperty('--accent', '#D9C5B2');
+      this.setCustomProperty('--first', '#252422');
+      this.setCustomProperty('--second', '#5C5A56');
+      this.setCustomProperty('--third', '#6A6863');
+      this.setCustomProperty('--fourth', '#AEABA4');
+      this.setCustomProperty('--fifth', '#EBE8DF');
+      this.setCustomProperty('--accent', '#99D538');
 
     }
     this.isDarkTheme = !this.isDarkTheme;
