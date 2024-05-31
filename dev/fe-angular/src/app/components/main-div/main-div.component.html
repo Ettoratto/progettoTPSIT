@@ -42,17 +42,19 @@
                             </svg>
                         </div>
 
-                        <div class="user-info">
-                            <div class="user-name">
-                                <span>{{user.first_name}} {{user.last_name}}</span>
+                        <div class="user-card-info">
+                            <div class="row">
+                                <span>{{user.first_name}} {{user.last_name}}</span> <span class="float-right">{{user.date_of_birth}}</span>
                             </div>
-                            <div class="user-email">
+                            <div class="row">
+                                <span>{{user.codice_fiscale}}</span>
                             </div>
                         </div>
 
                     </div>
                 </form>
             </div>
+
             <div class="user-info-container">
                 <div class="user-info-wrapper">
                     <div *ngIf="displayInfo" class="user-info">

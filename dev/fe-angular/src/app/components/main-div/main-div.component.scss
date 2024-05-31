@@ -203,7 +203,7 @@ button {
 
         cursor: pointer;
         scale: 1.03;
-        transition: 0.2s ease-in;
+        transition: 0.1s ease-in-out;
     }
 }
 
@@ -225,4 +225,17 @@ button {
         height: 60px;
         stroke: var(--first);
     }
+}
+
+.user-card-info {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+span .float-left{    
+
+    float: left;
 }
