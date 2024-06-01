@@ -13,18 +13,15 @@ public class Customer {
 	private Long id;
 
 	@Column(name = "first_name")
-	@NonNull
 	private String first_name;
 
 	@Column(name = "last_name")
-	@NonNull
 	private String last_name;
 
 	@Column(name = "phone")
 	private String phone;
 
-	@Column(name = "codice_fiscale", unique = true)
-	@NonNull
+	@Column(name = "codiceFiscale", unique = true)
 	private String codiceFiscale;
 
 	@Column(name = "address")
@@ -35,7 +32,6 @@ public class Customer {
 	private String medical_certificate_date;
 
 	@Column(name = "date_of_birth")
-	@NonNull
 	private String date_of_birth;
 
 	@Column(name = "email")
@@ -45,7 +41,6 @@ public class Customer {
 	private String subscription;
 
 	@Column(name = "sex")
-	@NonNull
 	private String sex;
 
 	public Customer() {

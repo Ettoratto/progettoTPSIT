@@ -6,7 +6,7 @@ import it.ms.api.data.entity.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    boolean existsByCodiceFiscale(String codice_fiscale);
+    boolean existsByCodiceFiscale(String codiceFiscale);
 
     Customer findByCodiceFiscale(String cF);
 }
