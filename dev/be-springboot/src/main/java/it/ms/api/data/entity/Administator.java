@@ -1,5 +1,6 @@
 package it.ms.api.data.entity;
 
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,9 +13,11 @@ public class Administator {
 	private Long id;
 
 	@Column(name = "usern", unique = true)
+	@NonNull
 	private String usern;
 
 	@Column(name = "passw")
+	@NonNull
 	private String passw;
 
 	

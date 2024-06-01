@@ -28,7 +28,7 @@ public class CustomerController {
     @PostMapping("/register")
     public ResponseEntity<String> registerRequest(@RequestBody Customer c) {
 
-        if (customerRepo.existsByCodiceFiscale(c.getCodice_fiscale())) {
+        if (customerRepo.existsByCodiceFiscale(c.getCodiceFiscale())) {
             return ResponseEntity.badRequest().body("{\"response\": \"Customer already exists\"}");
         }
         customerRepo.save(c);
@@ -38,7 +38,7 @@ public class CustomerController {
     @PostMapping("/edit")
     public ResponseEntity<String> editRequest(@RequestBody Customer c) {
 
-        if (!customerRepo.existsByCodiceFiscale(c.getCodice_fiscale())) {
+        if (!customerRepo.existsByCodiceFiscale(c.getCodiceFiscale())) {
             return ResponseEntity.badRequest().body("{\"response\": \"Customer doesn't exists\"}");
         }
 
@@ -54,10 +54,13 @@ public class CustomerController {
             existingCustomer.setFirst_name(c.getFirst_name());
             existingCustomer.setLast_name(c.getLast_name());
             existingCustomer.setPhone(c.getPhone());
-            existingCustomer.setCodice_fiscale(c.getCodice_fiscale());
+            existingCustomer.setCodiceFiscale(c.getCodiceFiscale());
             existingCustomer.setAddress(c.getAddress());
             existingCustomer.setMedical_certificate_date(c.getMedical_certificate_date());
             existingCustomer.setDate_of_birth(c.getDate_of_birth());
+            existingCustomer.setEmail(c.getEmail());
+            existingCustomer.setSex(c.getSex());
+            existingCustomer.setSubscription(c.getSubscription());
 
             customerRepo.save(existingCustomer);
             return ResponseEntity.ok("{\"response\": \"Customer edited\"}");

@@ -1,7 +1,7 @@
 package it.ms.api.data.entity;
 
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.*;
-import jakarta.persistence.Id;
 
 @Entity
 @Table(name = "Customers")
@@ -13,38 +13,56 @@ public class Customer {
 	private Long id;
 
 	@Column(name = "first_name")
+	@NonNull
 	private String first_name;
 
 	@Column(name = "last_name")
+	@NonNull
 	private String last_name;
 
 	@Column(name = "phone")
 	private String phone;
 
-	@Column(name = "codice_fiscale" , unique = true)
+	@Column(name = "codice_fiscale", unique = true)
+	@NonNull
 	private String codiceFiscale;
 
 	@Column(name = "address")
 	private String address;
 
 	@Column(name = "medical_certificate_date")
+	@NonNull
 	private String medical_certificate_date;
 
 	@Column(name = "date_of_birth")
+	@NonNull
 	private String date_of_birth;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "subscription")
+	private String subscription;
+
+	@Column(name = "sex")
+	@NonNull
+	private String sex;
 
 	public Customer() {
 	}
 
-	public Customer(String first_name, String last_name, String phone, String codice_fiscale, String address,
-			String string, String string2) {
+	public Customer(String first_name, String last_name, String phone, String codiceFiscale, String address,
+			String medical_certificate_date, String date_of_birth, String email, String subscription, String sex) {
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.phone = phone;
-		this.codiceFiscale = codice_fiscale;
+		this.codiceFiscale = codiceFiscale;
 		this.address = address;
-		this.medical_certificate_date = string;
-		this.date_of_birth = string2;
+		this.medical_certificate_date = medical_certificate_date;
+		this.date_of_birth = date_of_birth;
+		this.email = email;
+		this.subscription = subscription;
+		this.sex = sex;
 	}
 
 	public Long getId() {
@@ -79,12 +97,12 @@ public class Customer {
 		this.phone = phone;
 	}
 
-	public String getCodice_fiscale() {
+	public String getCodiceFiscale() {
 		return codiceFiscale;
 	}
 
-	public void setCodice_fiscale(String codice_fiscale) {
-		this.codiceFiscale = codice_fiscale;
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
 
 	public String getAddress() {
@@ -111,11 +129,30 @@ public class Customer {
 		this.date_of_birth = date_of_birth;
 	}
 
-	@Override
-	public String toString() {
-		return "Customers [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", phone=" + phone
-				+ ", codice_fiscale=" + codiceFiscale + ", address=" + address + ", medical_certificate_date="
-				+ medical_certificate_date + ", date_of_birth=" + date_of_birth + "]";
+	public String getEmail() {
+		return email;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSubscription() {
+		return subscription;
+	}
+
+	public void setSubscription(String subscription) {
+		this.subscription = subscription;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	
 
 }
