@@ -17,6 +17,15 @@
             <input type="text" id="codice-fiscale" formControlName="codiceFiscale" name="codiceFiscale">
         </div>
         <div class="row">
+            <label for="sesso">Sesso:</label>
+            <select id="sesso" formControlName="sesso" name="sesso">
+                <option value="" selected disabled>Seleziona</option>
+                <option value="M">Maschio</option>
+                <option value="F">Femmina</option>
+                <option value="A">Altro</option>
+            </select>
+        </div>
+        <div class="row">
             <label for="indirizzo">Indirizzo:</label>
             <input type="text" id="indirizzo" formControlName="indirizzo" name="indirizzo">
         </div>  

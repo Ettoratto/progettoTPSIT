@@ -13,7 +13,7 @@ interface User {
   address: string;
   medical_certificate_date: string;
   date_of_birth: string;
-  codice_fiscale: string;
+  codiceFiscale: string;
   checked: boolean;
 }
 
@@ -75,8 +75,8 @@ export class MainDivComponent implements OnInit {
     }else{
       user.date_of_birth = `${wrongDate[2]}/${wrongDate[1]}/${wrongDate[0]}`;
     }
-    if(user.codice_fiscale === undefined) {
-      user.codice_fiscale = "N/A";
+    if(user.codiceFiscale === undefined) {
+      user.codiceFiscale = "N/A";
     }
     return user;
   

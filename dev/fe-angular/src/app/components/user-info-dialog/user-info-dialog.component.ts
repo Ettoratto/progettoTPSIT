@@ -35,6 +35,7 @@ export class UserInfoDialogComponent {
       indirizzo: [''],
       email: [''],
       tipoAbbonamento: [''],
+      sesso: [''],
       scadenzaCertificato: [''],
       codiceFiscale: ['', Validators.required]
     });
@@ -96,11 +97,12 @@ export class UserInfoDialogComponent {
     this.body = {
       first_name: this.userForm.get('nome')?.value,
       last_name: this.userForm.get('cognome')?.value,
-      codice_fiscale: this.userForm.get('codiceFiscale')?.value,
+      codiceFiscale: this.userForm.get('codiceFiscale')?.value,
       date_of_birth: this.userForm.get('dataNascita')?.value,
       phone: this.userForm.get('telefono')?.value,
       address: this.userForm.get('indirizzo')?.value,
       email: this.userForm.get('email')?.value,
+      sex: this.userForm.get('sesso')?.value,
       subscribtion: this.userForm.get('tipoAbbonamento')?.value,
       medical_certificate_date: this.userForm.get('scadenzaCertificato')?.value
     };
@@ -116,7 +118,8 @@ export class UserInfoDialogComponent {
       this.userForm.get('telefono')?.setValue(response.phone);
       this.userForm.get('indirizzo')?.setValue(response.address);
       this.userForm.get('email')?.setValue(response.email);
-      this.userForm.get('tipoAbbonamento')?.setValue(response.subscribtion);
+      this.userForm.get('sesso')?.setValue(response.sex);
+      this.userForm.get('tipoAbbonamento')?.setValue(response.subscription);
       this.userForm.get('scadenzaCertificato')?.setValue(response.medicalCertExpiry);
     });
   }
