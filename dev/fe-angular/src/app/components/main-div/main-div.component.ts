@@ -45,10 +45,41 @@ export class MainDivComponent implements OnInit {
     this.userData.getUsers().subscribe({
       next: users => {
         users.forEach((user:User) => {
+
+          user = this.checkForUndefined(user);
           this.addUser(user);
         });
       }
     });
+  }
+
+  checkForUndefined(user: User) {
+    if(user.first_name === undefined) {
+      user.first_name = "N/A";
+    }
+    if(user.last_name === undefined) {
+      user.last_name = "N/A";
+    }
+    if(user.phone === undefined) {
+      user.phone = "N/A";
+    }
+    if(user.address === undefined) {
+      user.address = "N/A";
+    }
+    if(user.medical_certificate_date === undefined) {
+      user.medical_certificate_date = "N/A";
+    }
+    let wrongDate = String(user.date_of_birth).split('-');
+    if(wrongDate[0] === undefined || wrongDate[1] === undefined || wrongDate[2] === undefined) {
+      user.date_of_birth = "N/A";
+    }else{
+      user.date_of_birth = `${wrongDate[2]}/${wrongDate[1]}/${wrongDate[0]}`;
+    }
+    if(user.codice_fiscale === undefined) {
+      user.codice_fiscale = "N/A";
+    }
+    return user;
+  
   }
 
   addUser(user: User) {

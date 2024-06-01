@@ -122,7 +122,7 @@ button {
 .container {
 
     height: 95%;
-    width: 165%;
+    width: 135%;
     background-color: var(--second);
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
@@ -134,15 +134,15 @@ button {
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 20px;    
+    justify-content: space-between;    
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .wrapper {
 
+    width: 100%;
     height: 88%;
-    box-sizing: border-box;
 }
 
 .internal-container {
@@ -189,6 +189,7 @@ button {
 
 .user-card {
 
+    max-width: 900px;
     display: flex;
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
@@ -198,6 +199,9 @@ button {
     color: var(--first);
     box-sizing: border-box;
     margin-bottom: 3%;;
+    letter-spacing: 4px;
+    text-shadow: $defaultTextShadow;
+    font-weight: 300;
 
     &:hover {
 
@@ -233,9 +237,31 @@ button {
     flex-direction: column;
     width: 100%;
     padding: 10px;
+    box-sizing: border-box;
+    align-items: space-between;
 }
 
 span .float-left{    
 
     float: left;
+}
+
+.card-row {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#secondRow {
+    
+    margin-top: 15px;
+}
+
+form {
+
+    margin: 0;
+    padding: 0;
 }
