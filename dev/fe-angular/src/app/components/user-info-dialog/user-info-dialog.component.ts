@@ -93,7 +93,6 @@ export class UserInfoDialogComponent {
   addUser(){
 
     this.createBody();
-    console.log(this.body);
     this.addEditUserService.addUser(this.body).subscribe({
       next: success => {
         if (success) {
@@ -126,7 +125,6 @@ export class UserInfoDialogComponent {
   fillInputs() {
     let dateValue: string;
     
-    console.log(this.data.user);
     this.userForm.get('nome')?.setValue(this.data.user.first_name);
     this.userForm.get('cognome')?.setValue(this.data.user.last_name);
     this.userForm.get('codiceFiscale')?.setValue(this.data.user.codiceFiscale);

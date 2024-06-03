@@ -18,7 +18,7 @@
                 <div class="input-container">
                     <input type="text" [(ngModel)]="searchQuery" matInput [formControl]="searchControl" [matAutocomplete]="auto" placeholder="Cerca utente">
                     <mat-autocomplete  #auto="matAutocomplete" class="mat-autocomplete-custom">
-                        <mat-option *ngFor="let user of options" [value]="user">
+                        <mat-option class="custom-autocomplete-option" *ngFor="let user of options" [value]="user">
                         {{ user }}
                         </mat-option>
                     </mat-autocomplete>
@@ -31,10 +31,10 @@
             </div>
         </div>  
     
-        <div class="internal-container">
+        <div tabindex="0" class="cards-container" (focusout)="hideUserInfo()">
             <div class="user-data-container">
                 <form>
-                    <div *ngFor="let user of filteredUsers()" class="user-card" (click)="displayUserInfo(user)">
+                    <div *ngFor="let user of filteredUsers()" class="user-card" (click)="displayUserInfo(user)" >
                         
                         <div class="checkBox">
                             <svg (click)="toggleCheckBox(user)" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,19 +49,19 @@
 
                         <div class="user-card-info">
                             <div class="card-row">
-                                <span style="font-size: 25px;">{{user.first_name}} {{user.last_name}}</span> <span class="float-right" style="font-size: 25px;">{{user.date_of_birth}}</span>
+                                <span style="font-size: 25px;">{{user.first_name}} {{user.last_name}}</span> <span style="font-size: 25px;">{{user.date_of_birth}}</span>
                             </div>
                             <div class="row" id="secondRow">
-                                <span>{{user.codiceFiscale}}</span>
+                                <span>{{user.codiceFiscale}}</span> <span id="sex" style="font-size: 25px;">{{user.sex}}</span>
                             </div>
                         </div>
 
                         <div class="subscription">
-                            <svg *ngIf="!checkUserSubscription(user.subscription)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                            <svg *ngIf="checkUserSubscription(user.subscription)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
                                 <path d="M9.5 20c-2.538 0-4.923-0.988-6.718-2.782s-2.782-4.18-2.782-6.717c0-2.538 0.988-4.923 2.782-6.718s4.18-2.783 6.718-2.783c2.538 0 4.923 0.988 6.718 2.783s2.782 4.18 2.782 6.718-0.988 4.923-2.782 6.717c-1.794 1.794-4.18 2.782-6.718 2.782zM9.5 2c-4.687 0-8.5 3.813-8.5 8.5s3.813 8.5 8.5 8.5 8.5-3.813 8.5-8.5-3.813-8.5-8.5-8.5z"></path>
                                 <path d="M7.5 14.5c-0.128 0-0.256-0.049-0.354-0.146l-3-3c-0.195-0.195-0.195-0.512 0-0.707s0.512-0.195 0.707 0l2.646 2.646 6.646-6.646c0.195-0.195 0.512-0.195 0.707 0s0.195 0.512 0 0.707l-7 7c-0.098 0.098-0.226 0.146-0.354 0.146z"></path>
                             </svg>
-                            <svg *ngIf="checkUserSubscription(user.subscription)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                            <svg *ngIf="!checkUserSubscription(user.subscription)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
                                 <path d="M14.332 14.126l-4.080-3.626 4.080-3.626c0.206-0.183 0.225-0.499 0.042-0.706s-0.499-0.225-0.706-0.042l-4.168 3.705-4.168-3.705c-0.206-0.183-0.522-0.165-0.706 0.042s-0.165 0.522 0.042 0.706l4.080 3.626-4.080 3.626c-0.206 0.183-0.225 0.499-0.042 0.706 0.099 0.111 0.236 0.168 0.374 0.168 0.118 0 0.237-0.042 0.332-0.126l4.168-3.705 4.168 3.705c0.095 0.085 0.214 0.126 0.332 0.126 0.138 0 0.275-0.057 0.374-0.168 0.183-0.206 0.165-0.522-0.042-0.706z"></path>
                                 <path d="M9.5 20c-2.538 0-4.923-0.988-6.718-2.782s-2.782-4.18-2.782-6.717c0-2.538 0.988-4.923 2.782-6.718s4.18-2.783 6.718-2.783c2.538 0 4.923 0.988 6.718 2.783s2.782 4.18 2.782 6.718-0.988 4.923-2.782 6.717c-1.794 1.794-4.18 2.782-6.718 2.782zM9.5 2c-4.687 0-8.5 3.813-8.5 8.5s3.813 8.5 8.5 8.5 8.5-3.813 8.5-8.5-3.813-8.5-8.5-8.5z"></path>
                             </svg>
@@ -83,7 +83,25 @@
             <div class="user-info-container">
                 <div class="user-info-wrapper">
                     <div *ngIf="displayInfo" class="user-info">
-                        
+                        <div class="info-row">
+                            <span>Indirizzo:</span><br> <span>{{userInfo.address}}</span>
+                        </div>
+                        <hr>
+                        <div class="info-row">
+                            <span>E-mail:</span><br> <span>{{userInfo.email}}</span>
+                        </div>
+                        <hr>
+                        <div class="info-row">
+                            <span>N. di telefono:</span><br> <span>{{userInfo.phone}}</span>
+                        </div>
+                        <hr>
+                        <div class="info-row">
+                            <span>Scadenza certificato medico:</span><br> <span>{{userInfo.medical_certificate_date}}</span>
+                        </div>
+                        <hr>
+                        <div class="info-row">
+                            <span>Scadenza abbonamento:</span><br> <span>{{userInfo.subscription}}</span>
+                        </div>
                     </div>
                 </div>
             </div>

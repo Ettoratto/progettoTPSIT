@@ -8,7 +8,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { Observable, map, startWith, tap } from 'rxjs';
 import { FormControl, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ThisReceiver } from '@angular/compiler';
 
 interface User {
   id: number;
@@ -16,6 +15,8 @@ interface User {
   last_name: string;
   phone: string;
   address: string;
+  sex: string;
+  email: string;
   medical_certificate_date: string;
   date_of_birth: string;
   codiceFiscale: string;
@@ -40,6 +41,7 @@ export class MainDivComponent implements OnInit{
   constructor(public dialog: MatDialog, private scrollStrategyOptions: ScrollStrategyOptions, private userData: UserDataService) {}
 
   users: User[] = [];
+  userInfo!: User;
 
   searchQuery: string = '';
 
@@ -98,6 +100,7 @@ export class MainDivComponent implements OnInit{
   }
 
   checkForUndefined(user: User) {
+
     if (user.first_name === undefined) {
       user.first_name = "N/A";
     }
@@ -163,9 +166,11 @@ export class MainDivComponent implements OnInit{
 
     dialogRef.afterClosed().subscribe(() => {
 
-      this.users = [];
-      this.ngOnInit();
-    });
+      setTimeout(() => {
+        this.users = [];
+        this.ngOnInit();
+      }, 500); 
+    })
   }
 
   closeDialog() {
@@ -177,14 +182,32 @@ export class MainDivComponent implements OnInit{
   }
 
   displayUserInfo(user: User){
-
-    this.displayInfo = !this.displayInfo;
+    this.userInfo = user;
+    this.displayInfo = true;
   }
 
-  checkUserSubscription(userDate: string){
+  hideUserInfo() {
+    this.displayInfo = false;
+  }
+
+  checkUserSubscription(userDate: string): boolean {
     const currentDate = new Date();
-    const userDateAr = userDate.split('/');
-    const finalUserDate =  new Date(parseInt(userDateAr[2]), parseInt(userDateAr[1]), parseInt(userDateAr[0]));
-    return (finalUserDate < currentDate);
-  }
+
+    const currentDay = currentDate.getDate().toString().padStart(2, '0');
+    const currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const currentYear = currentDate.getFullYear().toString();
+
+    const userDateParts = userDate.split('/');
+    const userDay = userDateParts[0].padStart(2, '0');
+    const userMonth = userDateParts[1].padStart(2, '0');
+    const userYear = userDateParts[2];
+    
+    const parsedCurrentDate = new Date(parseInt(currentYear), parseInt(currentMonth) - 1, parseInt(currentDay));
+    const parsedUserDate = new Date(parseInt(userYear), parseInt(userMonth) - 1, parseInt(userDay));
+
+    
+    return parsedUserDate > parsedCurrentDate;
+}
+
+
 }
