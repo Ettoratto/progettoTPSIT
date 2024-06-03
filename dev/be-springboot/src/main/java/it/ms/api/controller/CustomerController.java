@@ -35,17 +35,6 @@ public class CustomerController {
         return ResponseEntity.ok("{\"response\": \"Customer saved\"}");
     }
 
-    @PostMapping("/edit")
-    public ResponseEntity<String> editRequest(@RequestBody Customer c) {
-
-        if (!customerRepo.existsByCodiceFiscale(c.getCodiceFiscale())) {
-            return ResponseEntity.badRequest().body("{\"response\": \"Customer doesn't exists\"}");
-        }
-
-        customerRepo.save(c);
-        return ResponseEntity.ok("{\"response\": \"Customer saved\"}");
-    }
-
     @PutMapping("/edit/{cF}")
     public ResponseEntity<String> editRequest(@PathVariable String cF, @RequestBody Customer c) {
         Customer existingCustomer = customerRepo.findByCodiceFiscale(cF);

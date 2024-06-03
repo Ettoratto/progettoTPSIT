@@ -101,3 +101,11 @@ button:hover {
   scrollbar-width: thin;
   scrollbar-color: var(--fourth) var(--first); 
 }
+
+.mat-autocomplete-custom {
+
+  background-color: var(--first) !important;
+  border-bottom-left-radius: 25px !important;
+  box-shadow: $defaultBoxShadow !important;
+  margin-top: -10px !important;
+}

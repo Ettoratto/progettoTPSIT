@@ -1,6 +1,5 @@
 @import "../../../assets/_variables.scss";
 
-
 svg {
 
     height: 55px;
@@ -59,7 +58,6 @@ button {
 
             color: var(--third);
             letter-spacing: 4px;
-            text-shadow: $defaultTextShadow;
         }
     }
 
@@ -122,7 +120,7 @@ button {
 .container {
 
     height: 95%;
-    width: 160%;
+    width: 150%;
     background-color: var(--second);
     border-radius: 25px;
     box-shadow: $defaultBoxShadow;
@@ -176,6 +174,7 @@ button {
     height: 100%;
     width: 100%;
     border-radius: 25px;
+    box-shadow: $defaultBoxShadow;
 }
 
 .user-data-container {
@@ -235,7 +234,7 @@ button {
 
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     box-sizing: border-box;
     align-items: space-between;
@@ -264,4 +263,47 @@ form {
 
     margin: 0;
     padding: 0;
+}
+
+.subscription {
+
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-left: 1px solid var(--first);
+    box-sizing: border-box;
+
+    svg path {
+        
+        height: 100%;
+        width: 100%;
+        fill: var(--first);
+        stroke-width: 0.5;
+    }
+}
+
+.edit-user {
+
+    background-color: var(--accent);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left: 1px solid var(--first);
+
+    svg {
+
+        stroke: var(--first);
+    }
+
+    button {
+
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

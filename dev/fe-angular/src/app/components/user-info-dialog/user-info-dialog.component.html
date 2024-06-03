@@ -39,17 +39,11 @@
         </div> 
         <div class="row">
             <label for="scadenza-certificato">Scadenza certificato medico:</label>
-            <input type="date" id="scadenza-certificato" style="font-size: 14;" formControlName="scadenzaCertificato" name="scadenzaCertificato">
+            <input type="date" id="scadenza-certificato" formControlName="scadenzaCertificato" name="scadenzaCertificato">
         </div> 
         <div class="row">
-            <label for="tipo-abbonamento">Tipo di abbonamento:</label>
-            <select id="tipo-abbonamento" formControlName="tipoAbbonamento" name="tipoAbbonamento">
-                <option value="" selected disabled>Seleziona</option>
-                <option value="mensile">Mensile</option>
-                <option value="trimestrale">Trimestrale</option>
-                <option value="semestrale">Semestrale</option>
-                <option value="annuale">Annuale</option>
-            </select>
+            <label for="data-abbonamento">Scadenza abbonamento:</label>
+            <input type="date" id="data-abbonamento" formControlName="dataAbbonamento" name="dataAbbonamento">
         </div>
 
         <div class="btn-row">
