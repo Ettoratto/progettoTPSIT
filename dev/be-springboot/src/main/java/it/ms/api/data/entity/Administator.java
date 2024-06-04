@@ -1,6 +1,6 @@
 package it.ms.api.data.entity;
 
-import io.micrometer.common.lang.NonNull;
+import java.sql.Blob;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,23 +13,24 @@ public class Administator {
 	private Long id;
 
 	@Column(name = "usern", unique = true)
-	@NonNull
 	private String usern;
 
 	@Column(name = "passw")
-	@NonNull
 	private String passw;
 
-	
+	@Column(name = "img")
+	private Blob img;
+
 	public Administator() {
 	}
 
-	public Administator(String usern, String passw) {
+	public Administator(String usern, String passw, Blob img) {
 		this.usern = usern;
 		this.passw = passw;
+		this.img = img;
 	}
 
-	public Long getId(Long id) {
+	public Long getId() {
 		return id;
 	}
 
@@ -53,9 +54,13 @@ public class Administator {
 		this.passw = passw;
 	}
 
-	@Override
-	public String toString() {
-		return "Administator [id=" + id + ", usern=" + usern + ", passw=" + passw + "]";
+	public Blob getImg() {
+		System.out.println(img); // Noncompliant; this code will print the Blob object, not the image content
+		return img;
+	}
+
+	public void setImg(Blob img) {
+		this.img = img;
 	}
 
 }

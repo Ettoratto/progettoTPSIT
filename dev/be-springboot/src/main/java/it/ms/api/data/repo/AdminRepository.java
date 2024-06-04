@@ -12,5 +12,6 @@ import it.ms.api.data.entity.Administator;
 public interface AdminRepository extends JpaRepository<Administator, Long> {
 
   List<Administator> findByUsernAndPassw(String usern, String passw);
+  Administator findByUsern(String usern);
 
 }
