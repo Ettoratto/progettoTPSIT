@@ -6,8 +6,8 @@
             <span id="connection">Accesso alle: {{accessTime}}</span>
         </div>
     </div>
-    <div class="placeholder">
-        
+    <div class="actionHistory">
+        <div *ngFor="let action of actions">{{action}}<hr></div>
     </div>
     <div class="footer-btns">
         <button id="logout" (click)="logOutDialog()">

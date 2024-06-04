@@ -18,10 +18,12 @@
         width: 25px;
         height: 40px;
         margin-right: 5px;
+        filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.37));
     }
 
     #number {
-        color: white;
+        color: var(--first);
+        text-shadow: $defaultTextShadow;
         font-size: 22px;
         letter-spacing: 2px;
     }

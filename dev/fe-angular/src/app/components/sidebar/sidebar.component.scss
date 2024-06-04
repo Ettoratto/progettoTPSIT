@@ -7,7 +7,7 @@
     align-items: center;
     background-color: var(--second);
     height: 100%;
-    width: fit-content;
+    width: 365px;
     padding: 15px;
 }
 
@@ -18,10 +18,11 @@
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 361px;
+    width: 98%;
     height: 90px;
     box-shadow: $defaultBoxShadow;
-    border-radius: 105px;
+    border-top-left-radius: 105px;
+    border-bottom-left-radius: 105px;
     background-color: var(--first);
 
     #username  {
@@ -56,14 +57,27 @@
 
 }
 
-.placeholder {
+.actionHistory {
 
-    width: 361px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 98%;
     height: 75%;
-    border-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
     background-color: var(--first);
     margin-top: 20px;
     box-shadow: $defaultBoxShadow;
+    box-sizing: border-box;
+    color: var(--fifth);
+    padding: 30px;
+    overflow-y: auto;
+
+    div {
+
+        margin-top: 10px;
+    }
 }
 
 .footer-btns {

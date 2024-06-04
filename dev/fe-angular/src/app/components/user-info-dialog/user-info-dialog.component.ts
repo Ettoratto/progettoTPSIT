@@ -8,6 +8,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddEditUserService } from '../../services/add-edit-user.service';
 import { Observable } from 'rxjs';
+import { ActionHistoryService } from '../../services/action-history.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ import { Observable } from 'rxjs';
 })
 export class UserInfoDialogComponent {
 
-  constructor (@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<UserInfoDialogComponent>, private mainDiv: MainDivComponent, private fb: FormBuilder,  private _snackBar: MatSnackBar, private addEditUserService: AddEditUserService) {}
+  constructor (@Inject(MAT_DIALOG_DATA) public data: any, private actionHistory: ActionHistoryService , private dialogRef: MatDialogRef<UserInfoDialogComponent>, private mainDiv: MainDivComponent, private fb: FormBuilder,  private _snackBar: MatSnackBar, private addEditUserService: AddEditUserService) {}
 
   userForm!: FormGroup;
   inputs: any;
@@ -79,6 +80,7 @@ export class UserInfoDialogComponent {
       next: success => {
         if (success) {
           this.openSnackBar("Utente aggiornato!");
+          this.actionHistory.addAction("Modificato utente:\n" + this.body.first_name + " " + this.body.last_name);
           this.mainDiv.closeDialog();
         } else 
           this.openSnackBar("Errore durante la modifica");
@@ -98,6 +100,7 @@ export class UserInfoDialogComponent {
         if (success) {
           this.openSnackBar("Utente registrato!");
           this.mainDiv.closeDialog();
+          this.actionHistory.addAction("Aggiunto utente:\n" + this.body.first_name + " " + this.body.last_name);
         } else 
           this.openSnackBar("Utente già registrato");
       },

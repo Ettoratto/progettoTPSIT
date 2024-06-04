@@ -8,6 +8,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { Observable, map, startWith, tap } from 'rxjs';
 import { FormControl, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateUsersService } from '../../services/update-users.service';
+import { ActionHistoryService } from '../../services/action-history.service';
 
 interface User {
   id: number;
@@ -22,6 +24,7 @@ interface User {
   codiceFiscale: string;
   subscription: string;
   checked: boolean;
+  alreadyAdded: boolean;
 }
 
 @Injectable({
@@ -38,10 +41,11 @@ interface User {
 })
 export class MainDivComponent implements OnInit{
   
-  constructor(public dialog: MatDialog, private scrollStrategyOptions: ScrollStrategyOptions, private userData: UserDataService) {}
+  constructor(private actionHistory: ActionHistoryService, private updateUsers:UpdateUsersService, public dialog: MatDialog, private scrollStrategyOptions: ScrollStrategyOptions, private userData: UserDataService) {}
 
   users: User[] = [];
   userInfo!: User;
+  tmpUsers: User[] = [];
 
   searchQuery: string = '';
 
@@ -53,10 +57,11 @@ export class MainDivComponent implements OnInit{
   displayInfo: boolean = false;
   
 
-  ngOnInit() {
+  ngOnInit():any {
 
     this.getUsers().subscribe(() => {
       this.initializeOptions();
+      this.setChecks(this.tmpUsers);
     });
     
     this.filteredOptions = this.searchControl.valueChanges.pipe(
@@ -167,10 +172,23 @@ export class MainDivComponent implements OnInit{
     dialogRef.afterClosed().subscribe(() => {
 
       setTimeout(() => {
+        this.tmpUsers = this.users;
         this.users = [];
         this.ngOnInit();
       }, 500); 
     })
+  }
+
+  setChecks(users: User[]) {
+    
+    console.log(users);
+    users.forEach((user: User) => {
+      this.users.forEach((newUser: User) => {
+        if (user.id === newUser.id) {
+          newUser.alreadyAdded = user.alreadyAdded;
+        }
+      });
+    });
   }
 
   closeDialog() {
@@ -178,7 +196,18 @@ export class MainDivComponent implements OnInit{
   }
 
   toggleCheckBox(user: User) {
+
     user.checked = !user.checked;
+  }
+
+  updateUsersCount() {
+    this.users.forEach((user: User) => {
+      if (user.checked && !user.alreadyAdded) {
+        this.updateUsers.updateUsers();
+        user.alreadyAdded = true;
+        this.actionHistory.addAction(`Segnato utente: ${user.first_name} ${user.last_name}`);
+      }
+    });
   }
 
   displayUserInfo(user: User){
