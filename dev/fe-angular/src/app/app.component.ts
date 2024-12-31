@@ -1,5 +1,5 @@
 import { CommonModule, JsonPipe, NgIf } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -17,7 +17,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, JsonPipe, HttpClientModule, SidebarComponent, ActiveUsersComponent, MainDivComponent, MatDialogModule, LoginComponent, CommonModule, ReactiveFormsModule],
+  imports: [RouterOutlet, JsonPipe, 
+// TODO: `HttpClientModule` should not be imported into a component directly.
+// Please refactor the code to add `provideHttpClient()` call to the provider list in the
+// application bootstrap logic and remove the `HttpClientModule` import from this component.
+SidebarComponent, ActiveUsersComponent, MainDivComponent, MatDialogModule, LoginComponent, CommonModule, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
